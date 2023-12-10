@@ -1,0 +1,40 @@
+import { Text } from "lucide-react";
+import SidebarLinks from "./Links";
+
+interface propsType {
+  open: boolean;
+  onClose: () => void;
+}
+
+const Sidebar = ({ open, onClose }: propsType) => {
+  return (
+    <div
+      className={`sm:none duration-175 linear dark:!bg-navy-800 fixed !z-50 flex min-h-full flex-col bg-zinc-900 pb-10 shadow-2xl shadow-white/5 transition-all dark:text-white md:!z-50 lg:!z-50 xl:!z-0 ${
+        open ? "translate-x-0" : "-translate-x-96"
+      }`}
+    >
+      <span
+        className="absolute right-4 top-4 block cursor-pointer xl:hidden"
+        onClick={onClose}
+      >
+        <Text />
+      </span>
+
+      <div className={`mx-[56px] mt-[50px] flex items-center`}>
+        <div className="font-poppins text-white ml-1 mt-1 h-2.5 text-[26px] font-bold uppercase dark:text-white">
+          BINAR <span className="font-medium">RENTAL</span>
+        </div>
+      </div>
+      <div className="mb-7 mt-[58px] h-px bg-gray-300 dark:bg-white/30" />
+      {/* Nav item */}
+
+      <ul className="mb-auto pt-1">
+        <SidebarLinks />
+      </ul>
+
+      {/* Nav item end */}
+    </div>
+  );
+};
+
+export default Sidebar;
