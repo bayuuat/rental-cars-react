@@ -2,7 +2,7 @@ import axiosClient from "@/lib/axios";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 
-export const useFetchCars = (form: any) => {
+export const useFetchCars = (form?: any) => {
   let params = new URLSearchParams(); // Declare params at the top level
 
   if (form) {
